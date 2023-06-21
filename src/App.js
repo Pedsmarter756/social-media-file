@@ -1,3 +1,5 @@
+import "rsuite/dist/rsuite.min.css";
+import "./Style/main.scss";
 function App() {
   return (
     <div className="App">
