@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Privateroute from "./Components/Privateroute";
 import Publicroute from "./Components/Publicroute";
 import Preloader from "./Components/Preloader";
+
 function App() {
   return (
     <>
