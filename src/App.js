@@ -7,24 +7,27 @@ import Home from "./pages/Home";
 import Privateroute from "./Components/Privateroute";
 import Publicroute from "./Components/Publicroute";
 import Preloader from "./Components/Preloader";
+import { ProfileProvider } from "./context/profile.context";
 
 function App() {
   return (
     <>
       <Preloader />
       <div className="App">
-        <Switch>
-          {/* <route path="/signin">
+        <ProfileProvider>
+          <Switch>
+            {/* <route path="/signin">
           <SignIn />
         </route> */}
 
-          <Publicroute path="/signin">
-            <SignIn />
-          </Publicroute>
-          <Privateroute>
-            <Home />
-          </Privateroute>
-        </Switch>
+            <Publicroute path="/signin">
+              <SignIn />
+            </Publicroute>
+            <Privateroute>
+              <Home />
+            </Privateroute>
+          </Switch>
+        </ProfileProvider>
       </div>
     </>
   );

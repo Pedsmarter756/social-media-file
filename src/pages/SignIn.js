@@ -1,6 +1,6 @@
 import React from "react";
 import firebase from "firebase/compat/app";
-import { Alert, Button, Col, Container, Grid, Icon, Row } from "rsuite";
+import { Alert, Button, Col, Container, Grid, Icon, Row, Panel } from "rsuite";
 import { auth, database } from "../misc/firebase";
 const SignIn = () => {
   //we want promise so use await and async functiion
@@ -32,7 +32,7 @@ const SignIn = () => {
       <Grid className="mt-page">
         <Row>
           <Col xs={24} md={12} mdOffset={6}>
-            <panel>
+            <Panel>
               <div className="text-center">
                 <h1>Welcome to Chat</h1>
                 <p>Progessive chat platform For Everyone</p>
@@ -46,7 +46,7 @@ const SignIn = () => {
                   <Icon icon="google"> Continue with Google</Icon>
                 </Button>
               </div>
-            </panel>
+            </Panel>
           </Col>
         </Row>
       </Grid>
