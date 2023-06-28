@@ -6,13 +6,13 @@ import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
 import Privateroute from "./Components/Privateroute";
 import Publicroute from "./Components/Publicroute";
-import Preloader from "./Components/Preloader";
+// import Preloader from "./Components/Preloader";
 import { ProfileProvider } from "./context/profile.context";
 
 function App() {
   return (
     <>
-      <Preloader />
+      {/* <Preloader /> */}
       <div className="App">
         <ProfileProvider>
           <Switch>
