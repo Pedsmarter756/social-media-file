@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Grid, Row } from "rsuite";
+import { Col, Grid, Row } from "rsuite";
 import Sidebar from "../Components/Sidebar";
 
 const Home = () => {
