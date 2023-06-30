@@ -1,6 +1,6 @@
 {
   "name": "react-chat-app",
-  "homepage":"https://saksham-raghuvanshi.github.io/react-chat-app/",
+  "homepage": "https://saksham-raghuvanshi.github.io/react-chat-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,6 +11,7 @@
     "gsap": "^3.12.1",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
+    "react-avatar-editor": "^11.0.7",
     "react-dom": "^18.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
