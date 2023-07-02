@@ -1,6 +1,5 @@
 {
   "name": "react-chat-app",
-  "homepage": "https://saksham-raghuvanshi.github.io/react-chat-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
