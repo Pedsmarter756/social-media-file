@@ -3,7 +3,7 @@ import "./Style/main.scss";
 import "./Style/preloader.scss";
 import { Switch } from "react-router";
 import SignIn from "./pages/SignIn";
-import Home from "./pages/Home";
+import Home from "./pages/Home/index";
 import Privateroute from "./Components/Privateroute";
 import Publicroute from "./Components/Publicroute";
 // import Preloader from "./Components/Preloader";
