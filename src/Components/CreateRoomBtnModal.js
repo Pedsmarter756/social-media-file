@@ -45,6 +45,10 @@ const CreateRoomBtnModal = () => {
       ...formValue,
       createdAt: firebase.database.ServerValue.TIMESTAMP,
     };
+    // const newRoomData = {
+    //   ...(Array.isArray(formValue) ? [...formValue] : formValue),
+    //   createdAt: firebase.database.ServerValue.TIMESTAMP,
+    // };
 
     try {
       await database.ref("rooms").push(newRoomData);
