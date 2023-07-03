@@ -6,10 +6,11 @@ import ChatRoomList from "./ChatRooms/ChatRoomList";
 
 const Sidebar = () => {
   const topSidebarRef = useRef();
-  const [height, setheight] = useState(0);
+  const [height, setHeight] = useState(0);
+
   useEffect(() => {
     if (topSidebarRef.current) {
-      setheight(topSidebarRef.current.scrollHeight);
+      setHeight(topSidebarRef.current.scrollHeight);
     }
   }, [topSidebarRef]);
   return (
@@ -17,11 +18,11 @@ const Sidebar = () => {
       <div ref={topSidebarRef}>
         <DashboardToggle />
         <CreateRoomBtnModal />
-        <Divider>Join the Conversation</Divider>
-        <div>
-          <ChatRoomList aboveElheight={height} />
-        </div>
+        <Divider style={{ margin: 0, padding: "30px 0" }}>
+          Join the Conversation
+        </Divider>
       </div>
+      <ChatRoomList aboveElHeight={height} />
     </div>
   );
 };
