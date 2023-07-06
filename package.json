@@ -17,6 +17,7 @@
     "react-scripts": "5.0.1",
     "rsuite": "^4.10.2",
     "timeago-react": "^3.0.6",
+    "use-context-selector": "^1.4.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
