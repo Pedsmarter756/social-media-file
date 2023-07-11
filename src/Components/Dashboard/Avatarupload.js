@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { database, storage } from "../../misc/firebase";
 import { useProfile } from "../../context/profile.context";
 import ProfileAvatar from "./ProfileAvatar";
+import { getUserUpdate } from "../../misc/helper";
 const fileInputtype = ".png, .jpeg, jpg";
 const acceptFileTypes = ["image/png", "image/jpeg", "image/pjpeg"];
 const isValidType = (file) => acceptFileTypes.includes(file.type);
@@ -59,11 +60,19 @@ const Avatarupload = () => {
 
       const downloadUrl = await uploadavatarResult.ref.getDownloadURL();
 
-      const userAvatarRef = database
-        .ref(`/profiles/${profile.uid}`)
-        .child("avatar");
+      const updates = await getUserUpdate(
+        profile.uid,
+        "avatar",
+        downloadUrl,
+        database
+      );
+      await database.ref().update(updates);
 
-      userAvatarRef.set(downloadUrl);
+      // const userAvatarRef = database
+      //   .ref(`/profiles/${profile.uid}`)
+      //   .child("avatar");
+
+      // userAvatarRef.set(downloadUrl);
       setIsLoading(false);
       Alert.info("Avatar has been uploaded", 4000);
     } catch (error) {
