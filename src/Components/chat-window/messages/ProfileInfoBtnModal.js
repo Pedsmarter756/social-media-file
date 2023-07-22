@@ -2,7 +2,6 @@ import React from "react";
 import { useModalState } from "../../../misc/custom-hooks";
 import { Button, Modal } from "rsuite";
 import ProfileAvatar from "../../Dashboard/ProfileAvatar";
-import ModalFooter from "rsuite/lib/Modal/ModalFooter";
 
 const ProfileInfoBtnModal = ({ profile }) => {
   const { isopen, close, open } = useModalState();
@@ -30,7 +29,7 @@ const ProfileInfoBtnModal = ({ profile }) => {
         </Modal.Body>
         <Modal.Footer>
           <Button block primary onClick={close}>
-            close
+            Close
           </Button>
         </Modal.Footer>
       </Modal>

@@ -2,6 +2,7 @@ import React from "react";
 import TimeAgo from "timeago-react";
 import ProfileAvatar from "../../Dashboard/ProfileAvatar";
 import ProfileInfoBtnModal from "./ProfileInfoBtnModal";
+import PresenceDots from "../../ChatRooms/PresenceDots";
 
 const MessageItem = ({ messages }) => {
   const { author, createdAt, text } = messages;
@@ -9,6 +10,7 @@ const MessageItem = ({ messages }) => {
   return (
     <li className="padded mb-1">
       <div className="d-flex align-items-center font-bolder mb-1">
+        <PresenceDots uid={author.uid} />
         <ProfileAvatar
           src={author.avatar}
           name={author.name}
