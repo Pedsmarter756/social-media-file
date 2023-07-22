@@ -17,7 +17,7 @@ const Message = () => {
     const messageRef = database.ref("messages");
     messageRef
       .orderByChild("roomId")
-      .equalTo("chatId")
+      .equalTo(chatId)
       .on("value", (snap) => {
         const data = transformToArrWithid(snap.val());
 
