@@ -7,6 +7,7 @@ import { Button } from "rsuite";
 import { useCurrentRoom } from "../../../context/current-rooms.context";
 import { auth } from "../../../misc/firebase";
 import { memo } from "react";
+import { useHover } from "@uidotdev/usehooks";
 
 const MessageItem = ({ messages, handleAdmin }) => {
   const { author, createdAt, text } = messages;
@@ -17,8 +18,13 @@ const MessageItem = ({ messages, handleAdmin }) => {
   const isAuthor = auth.currentUser.uid === author.uid;
   const canGrantAdmin = isAdmin && !isAuthor;
 
+  const [reff, hovering] = useHover();
+
   return (
-    <li className="padded mb-1">
+    <li
+      className={`padded mb-1 cursor-pointer ${hovering ? "bg-black-02" : ""}`}
+      ref={reff}
+    >
       <div className="d-flex align-items-center font-bolder mb-1">
         <PresenceDots uid={author.uid} />
         <ProfileAvatar
