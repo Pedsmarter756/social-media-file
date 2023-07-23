@@ -10,7 +10,7 @@ import { memo } from "react";
 import { useHover, useMediaQuery } from "@uidotdev/usehooks";
 import IconBtnControl from "./IconBtnControl";
 
-const MessageItem = ({ messages, handleAdmin, handleLikes }) => {
+const MessageItem = ({ messages, handleAdmin, handleLikes, handleDelete }) => {
   const { author, createdAt, text, likes, likeCount } = messages;
   const isAdmin = useCurrentRoom((v) => v.isAdmin);
   const admins = useCurrentRoom((v) => v.admins);
@@ -64,6 +64,15 @@ const MessageItem = ({ messages, handleAdmin, handleLikes }) => {
           onClick={() => handleLikes(messages.id)}
           badgeContent={likeCount}
         />
+
+        {isAuthor && (
+          <IconBtnControl
+            isVisible={canShowIcons}
+            iconName="trash"
+            tooltip="Delete this message"
+            onClick={() => handleDelete(messages.id)}
+          />
+        )}
       </div>
       <div>
         <span className="word-break-all">{text}</span>

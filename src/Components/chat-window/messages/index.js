@@ -81,7 +81,40 @@ const Message = () => {
     });
 
     Alert.info(alertMsg, 4000);
-  }, []);
+  });
+
+  const handleDelete = useCallback(
+    async (msgId) => {
+      if (!window.confirm("Delete this message")) {
+        return;
+      }
+
+      const isLast = messages[messages.length - 1].id === msgId;
+      const updates = {};
+
+      updates[`/messages/${msgId}`] = null;
+
+      if (isLast && messages.length > 1) {
+        updates[`/rooms/${chatId}/lastMessage`] = {
+          ...messages[messages.length - 2],
+          msgId: messages[messages.length - 2].id,
+        };
+      }
+
+      if (isLast && messages.length === 1) {
+        updates[`/rooms/${chatId}/lastMessage`] = null;
+      }
+
+      try {
+        await database.ref().update(updates);
+        Alert.info("Message has been deleted");
+      } catch (error) {
+        Alert.error(error.message, 4000);
+      }
+    },
+
+    [chatId, messages]
+  );
 
   return (
     <ul className="msg-list custom-scroll">
@@ -93,6 +126,7 @@ const Message = () => {
             messages={msg}
             handleLikes={handleLikes}
             handleAdmin={handleAdmin}
+            handleDelete={handleDelete}
           />
         ))}
     </ul>
